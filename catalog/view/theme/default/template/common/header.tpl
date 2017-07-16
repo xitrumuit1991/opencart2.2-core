@@ -95,6 +95,7 @@
     </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav">
+        <li><a href="<?php echo $base; ?>" class="<?php echo !isset($_GET['path']) ? 'active' : ''; ?>" ><i class="fa fa-home"></i></a></li>
         <?php foreach ($categories as $category) 
         {
             $checkActive = false;
