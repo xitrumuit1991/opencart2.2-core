@@ -23,6 +23,9 @@
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
 <link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet">
+
+<link href="catalog/view/theme/default/stylesheet/menu.css" rel="stylesheet">
+
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
@@ -92,9 +95,15 @@
     </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav">
-        <?php foreach ($categories as $category) { ?>
-        <?php if ($category['children']) { ?>
-        <li class="dropdown"><a href="<?php echo $category['href']; ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $category['name']; ?></a>
+        <?php foreach ($categories as $category) 
+        {
+            $checkActive = false;
+            $checkPath = explode('_', (isset($_GET['path']) ? $_GET['path'] : '') );
+            if($checkPath && $checkPath[0] && $checkPath[0] == $category['id'])
+              $checkActive = true;
+        if ($category['children']) { ?>
+        <li class="dropdown">
+          <a href="<?php echo $category['href']; ?>" class="dropdown-toggle <?php echo $checkActive==true ? 'active' : ''; ?>" data-toggle="dropdown"><?php echo $category['name']; ?></a>
           <div class="dropdown-menu">
             <div class="dropdown-inner">
               <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
@@ -107,8 +116,9 @@
             </div>
             <a href="<?php echo $category['href']; ?>" class="see-all"><?php echo $text_all; ?> <?php echo $category['name']; ?></a> </div>
         </li>
-        <?php } else { ?>
-        <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+        <?php 
+        } else { ?>
+        <li><a href="<?php echo $category['href']; ?>" class="<?php echo $checkActive==true ? 'active' : ''; ?>" ><?php echo $category['name']; ?></a></li>
         <?php } ?>
         <?php } ?>
       </ul>
