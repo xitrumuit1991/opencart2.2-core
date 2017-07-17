@@ -1,3 +1,13 @@
 #menu .nav > li > a.active{
 	background-color: rgba(0, 0, 0, 0.1);
 }
+
+
+.custom-nav-top{
+	border-top: 4px solid #013c54 !important;
+	background-color: #2d7896 !important;
+    color: #fff;
+}
+.custom-nav-top .text-white{
+	color: #ececec !important;
+}

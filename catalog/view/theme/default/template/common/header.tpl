@@ -41,6 +41,27 @@
 <?php } ?>
 </head>
 <body class="<?php echo $class; ?>">
+
+
+
+
+<!-- <nav id="top" class="custom-nav-top">
+  <div class="container">
+    <div class="pull-left" style="margin-top: 5px;">
+      <ul class="list-inline">
+        <li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md"><?php echo $telephone; ?></span></li>
+        <li><a href="<?php echo $email; ?>"><i class="fa fa-envelope"></i></a> <span class="hidden-xs hidden-sm hidden-md"><?php echo $email; ?></span></li>
+      </ul>
+    </div>
+    <div class="pull-right">
+      <?php echo $language; ?>
+    </div>
+  </div>
+</nav> -->
+
+
+
+
 <nav id="top">
   <div class="container">
     <?php echo $currency; ?>
@@ -69,6 +90,7 @@
     </div>
   </div>
 </nav>
+
 <header>
   <div class="container">
     <div class="row">
